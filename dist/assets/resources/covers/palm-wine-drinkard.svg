@@ -1,0 +1,15 @@
+﻿  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#0d5a4c"/>
+        <stop offset="50%" stop-color="#d4a12c"/>
+        <stop offset="100%" stop-color="#1d2f2d"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="1200" fill="url(#g)"/>
+    <circle cx="150" cy="180" r="110" fill="rgba(255,255,255,0.16)"/>
+    <circle cx="660" cy="930" r="130" fill="rgba(255,255,255,0.10)"/>
+    <path d="M0 920 L170 760 L340 900 L540 680 L800 920 L800 1200 L0 1200 Z" fill="rgba(255,255,255,0.12)"/>
+    <text x="400" y="620" text-anchor="middle" fill="#fffdf8" font-size="54" font-family="Georgia, serif" font-weight="700">African Heritage</text>
+    <text x="400" y="690" text-anchor="middle" fill="#f7e7b1" font-size="30" font-family="Arial, sans-serif" letter-spacing="5">RESOURCE</text>
+  </svg>
