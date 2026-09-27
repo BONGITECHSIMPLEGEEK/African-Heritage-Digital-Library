@@ -21,10 +21,10 @@ const resources = [
   { title: "The Story of the San People", author: "Kagiso Mofokeng", year: "2020", format: "Video (YouTube)", size: "N/A", category: "Oral Histories", icon: Headphones, doc: "https://youtu.be/Q9zQunujpSo?si=XbkZYONB5py8LH8T", cover: "/assets/resources/covers/san-people.jfif" },
   { title: "African Wildlife & Conservation", author: "Wildlife Trust Africa", year: "2022", format: "Video (YouTube)", size: "N/A", duration: "1 hr", category: "Audio & Video", icon: Video, doc: "https://youtu.be/MPyrjIYEqSA?si=_nETIruhqZF1UWup", cover: "/assets/resources/covers/wildlife-conservation.jfif" },
   { title: "The Palm Wine Drinkard", author: "Amos Tutuola", year: "1952", format: "PDF", size: "1.8 MB", category: "African Books", icon: BookOpen, doc: "/assets/resources/toaz.info-the-palm-wine-drinkard-amos-tutuola-pdf-pr_1e63668e93ff049ea08ee4b3fe5a1088.pdf", cover: "/assets/resources/covers/palm-wine-drinkard.jfif" },
-  { title: "The Story of South Africa", author: "A. C. Jordan", year: "1983", format: "EPUB", size: "2.9 MB", category: "History", icon: FileText, doc: "/assets/resources/the-story-of-south-africa.epub", cover: "/assets/resources/covers/south-africa-story.svg" },
-  { title: "Kente Cloth and Identity", author: "Ghana Textile Council", year: "2019", format: "Image (JPG)", size: "4.3 MB", category: "Culture & Heritage", icon: Tag, doc: "/assets/resources/kente-cloth-and-identity.jpg", cover: "/assets/resources/covers/kente-cloth.svg" },
-  { title: "Voices from the River", author: "Mariam Khamis", year: "2021", format: "Audio (MP3)", size: "38 MB", category: "Oral Histories", icon: Headphones, doc: "/assets/resources/voices-from-the-river.mp3", cover: "/assets/resources/covers/voices-from-the-river.svg" },
-  { title: "Wild Coast Conservation", author: "Coastal Marine Trust", year: "2023", format: "Video (MP4)", size: "240 MB", category: "Audio & Video", icon: Video, doc: "/assets/resources/wild-coast-conservation.mp4", cover: "/assets/resources/covers/wild-coast.svg" }
+  { title: "The Story of South Africa", author: "Leonard Monteath Thompson", year: "1983", format: "PDF", size: "2.9 MB", category: "History", icon: FileText, doc: "/assets/resources/leonard_monteath_thompson_a_history_of_south_afrbook4me.org_.pdf", cover: "/assets/resources/covers/south-africa-story.jfif" },
+  { title: "Kente Cloth and Identity", author: "Ghana Textile Council", year: "2019", format: "Website", size: "N/A", category: "Culture & Heritage", icon: Tag, doc: "https://www.adinkrasymbols.org/", cover: "/assets/resources/covers/kente-cloth.jfif" },
+  { title: "Oral Literature in Africa", author: "Mariam Khamis", year: "2021", format: "Link", size: "N/A", category: "Oral Histories", icon: Headphones, doc: "https://share.google/WKezQa7cQxmnzxvjX", cover: "/assets/resources/covers/voices-from-the-river.jfif" },
+  { title: "Wild Coast Conservation", author: "Coastal Marine Trust", year: "2023", format: "Link", size: "N/A", category: "Audio & Video", icon: Video, doc: "https://share.google/WKezQa7cQxmnzxvjX", cover: "/assets/resources/covers/wild-coast.jpg" }
 ];
 
 function slugify(value) {
@@ -100,6 +100,20 @@ const resourceDetails = {
     coverage: "Sub-Saharan Africa",
     keywords: "Wildlife; conservation; biodiversity",
     type: "Video resource",
+    access: "Public access"
+  },
+  "kente-cloth-and-identity": {
+    description: "Kente cloth is a brightly colored, handwoven textile from Ghana that serves as a powerful visual language and a core symbol of African identity, heritage, and pride.",
+    language: "English / Akan languages",
+    subject: "Kente cloth; Ghanaian textile heritage; cultural identity",
+    publisher: "Ghana Textile Council",
+    rights: "Open access demonstration record",
+    identifier: "AHDL-CUL-006",
+    contributor: "Ghana Textile Council",
+    source: "Cultural heritage archive",
+    coverage: "Ghana; West Africa",
+    keywords: "Kente; textile; identity; heritage; Ghana",
+    type: "Visual culture resource",
     access: "Public access"
   }
 };
