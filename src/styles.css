@@ -157,6 +157,14 @@ footer { background: var(--deep-green); color: white; padding: 35px 5% 20px; }
   .filters select { flex: 1; min-width: 0; }
   .collection-grid, .resource-grid { grid-template-columns: 1fr; }
   .collection-card > img { height: 180px; }
+  .page-title { flex-direction: column; align-items: flex-start; }
+  .collection-page-layout { grid-template-columns: 1fr; }
+  .collection-results .resource-grid { grid-template-columns: 1fr; }
+  .resource-detail { grid-template-columns: 1fr; gap: 22px; }
+  .detail-cover { min-height: 260px; }
+  .detail-actions { flex-direction: column; }
+  .primary-btn, .secondary-btn { width: 100%; justify-content: center; }
+  .metadata-grid { grid-template-columns: 1fr; }
   .about { padding: 50px 7%; }
   .about h2 { font-size: 34px; }
 }

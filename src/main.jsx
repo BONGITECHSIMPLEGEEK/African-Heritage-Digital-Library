@@ -15,12 +15,12 @@ const collections = [
 ];
 
 const resources = [
-  { title: "Things Fall Apart", author: "Chinua Achebe", year: "1958", format: "PDF", size: "2.4 MB", category: "African Books", icon: BookOpen, doc: "/assets/resources/things-fall-apart.pdf", cover: "/assets/resources/covers/things-fall-apart.svg" },
-  { title: "Long Walk to Freedom", author: "Nelson Mandela", year: "1994", format: "EPUB", size: "3.2 MB", category: "History", icon: FileText, doc: "/assets/resources/long-walk-to-freedom.epub", cover: "/assets/resources/covers/long-walk-to-freedom.svg" },
-  { title: "Zulu Beadwork: A Cultural Symbolism", author: "Zulu Heritage Centre", year: "2018", format: "Image (JPG)", size: "5.6 MB", category: "Culture & Heritage", icon: Tag, doc: "/assets/resources/zulu-beadwork.jpg", cover: "/assets/resources/covers/zulu-beadwork.svg" },
-  { title: "The Story of the San People", author: "Kagiso Mofokeng", year: "2020", format: "Audio (MP3)", size: "45 MB", category: "Oral Histories", icon: Headphones, doc: "/assets/resources/the-story-of-the-san-people.mp3", cover: "/assets/resources/covers/san-people.svg" },
-  { title: "African Wildlife & Conservation", author: "Wildlife Trust Africa", year: "2022", format: "Video (MP4)", size: "320 MB", category: "Audio & Video", icon: Video, doc: "/assets/resources/african-wildlife-conservation.mp4", cover: "/assets/resources/covers/wildlife-conservation.svg" },
-  { title: "The Palm Wine Drinkard", author: "Amos Tutuola", year: "1952", format: "PDF", size: "1.8 MB", category: "African Books", icon: BookOpen, doc: "/assets/resources/the-palm-wine-drinkard.pdf", cover: "/assets/resources/covers/palm-wine-drinkard.svg" },
+  { title: "Things Fall Apart", author: "Chinua Achebe", year: "1958", format: "PDF", size: "2.4 MB", category: "African Books", icon: BookOpen, doc: "/assets/resources/Things-Fall-Apart-de-Chinua-Achebe.pdf", cover: "/assets/resources/covers/things-fall-apart.jpg" },
+  { title: "Long Walk to Freedom", author: "Nelson Mandela", year: "1994", format: "PDF", size: "3.2 MB", category: "History", icon: FileText, doc: "/assets/resources/Long%20Walk%20to%20Freedom_%20The%20Autob%20-%20Nelson%20Mandela%20_Worldfreebooks.com_%20(1).pdf", cover: "/assets/resources/covers/long-walk-to-freedom.jpeg" },
+  { title: "Zulu Beadwork: A Cultural Symbolism", author: "Zulu Heritage Centre", year: "2018", format: "Image (JPG)", size: "5.6 MB", category: "Culture & Heritage", icon: Tag, doc: "https://zulubeadculture.weebly.com/symbols-and-meanings.html", cover: "/assets/resources/covers/zulu-beadwork.jpeg" },
+  { title: "The Story of the San People", author: "Kagiso Mofokeng", year: "2020", format: "Video (YouTube)", size: "N/A", category: "Oral Histories", icon: Headphones, doc: "https://youtu.be/Q9zQunujpSo?si=XbkZYONB5py8LH8T", cover: "/assets/resources/covers/san-people.jfif" },
+  { title: "African Wildlife & Conservation", author: "Wildlife Trust Africa", year: "2022", format: "Video (YouTube)", size: "N/A", duration: "1 hr", category: "Audio & Video", icon: Video, doc: "https://youtu.be/MPyrjIYEqSA?si=_nETIruhqZF1UWup", cover: "/assets/resources/covers/wildlife-conservation.jfif" },
+  { title: "The Palm Wine Drinkard", author: "Amos Tutuola", year: "1952", format: "PDF", size: "1.8 MB", category: "African Books", icon: BookOpen, doc: "/assets/resources/toaz.info-the-palm-wine-drinkard-amos-tutuola-pdf-pr_1e63668e93ff049ea08ee4b3fe5a1088.pdf", cover: "/assets/resources/covers/palm-wine-drinkard.jfif" },
   { title: "The Story of South Africa", author: "A. C. Jordan", year: "1983", format: "EPUB", size: "2.9 MB", category: "History", icon: FileText, doc: "/assets/resources/the-story-of-south-africa.epub", cover: "/assets/resources/covers/south-africa-story.svg" },
   { title: "Kente Cloth and Identity", author: "Ghana Textile Council", year: "2019", format: "Image (JPG)", size: "4.3 MB", category: "Culture & Heritage", icon: Tag, doc: "/assets/resources/kente-cloth-and-identity.jpg", cover: "/assets/resources/covers/kente-cloth.svg" },
   { title: "Voices from the River", author: "Mariam Khamis", year: "2021", format: "Audio (MP3)", size: "38 MB", category: "Oral Histories", icon: Headphones, doc: "/assets/resources/voices-from-the-river.mp3", cover: "/assets/resources/covers/voices-from-the-river.svg" },
@@ -390,9 +390,9 @@ function App() {
                 <h2>{selected.title}</h2>
                 <p className="lead">{currentDetails?.description}</p>
                 <div className="detail-actions">
-                  <button className="primary-btn" onClick={() => alert(`Open access: ${selected.title}`)}>
+                  <a className="primary-btn" href={selected.doc} target="_blank" rel="noreferrer">
                     <BookOpen size={18}/> Open Resource
-                  </button>
+                  </a>
                   <button className="secondary-btn" onClick={() => navigator.clipboard?.writeText(window.location.href)}>
                     Copy Link
                   </button>
@@ -410,8 +410,14 @@ function App() {
                 <Meta label="Title" value={selected.title} />
                 <Meta label="Creator / Author" value={selected.author} />
                 <Meta label="Date" value={selected.year} />
-                <Meta label="Format" value={selected.format} />
-                <Meta label="File Size" value={selected.size} />
+                {selected.title !== "Zulu Beadwork: A Cultural Symbolism" && (
+                  <Meta label="Format" value={selected.format} />
+                )}
+                {selected.duration ? (
+                  <Meta label="Duration" value={selected.duration} />
+                ) : (
+                  selected.title !== "Zulu Beadwork: A Cultural Symbolism" && <Meta label="File Size" value={selected.size} />
+                )}
                 <Meta label="Collection" value={selected.category} />
                 <Meta label="Language" value={currentDetails?.language} />
                 <Meta label="Subject" value={currentDetails?.subject} />
@@ -485,7 +491,11 @@ function ResourceCard({ item, index, onOpen }) {
         <h3>{item.title}</h3>
         <p><UserRound size={15} /> {item.author}</p>
         <p><CalendarDays size={15} /> {item.year}</p>
-        <p><FileText size={15} /> {item.format} ({item.size})</p>
+        {item.title === "African Wildlife & Conservation" ? (
+          <p><Video size={15} /> Duration: {item.duration}</p>
+        ) : item.title !== "Zulu Beadwork: A Cultural Symbolism" ? (
+          <p><FileText size={15} /> {item.format} ({item.size})</p>
+        ) : null}
         <p><Tag size={15} /> {item.category}</p>
         <button className="details" onClick={(e) => { e.stopPropagation(); onOpen(item); }}>View Details <ArrowRight size={16} /></button>
       </div>
